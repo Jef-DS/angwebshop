@@ -1,0 +1,10 @@
+.product {
+    margin: 0 auto;
+    width: 20rem;
+    text-align: left;
+}
+
+.product-label::after{
+    content: ': ';
+    width: 10rem;
+}
