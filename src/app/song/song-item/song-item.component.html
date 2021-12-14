@@ -1,4 +1,4 @@
 <article [ngClass]="{'red':artist=='ABBA'}">
     <div>{{title}} ({{year}}) performed by {{artist}}</div>
-    <div><button (click)="makeArtistABBA()">ABBA</button><button (click)="makeArtistSandraKim()">Sandra Kim</button></div>
+    <div><button (click)="artist='ABBA'">ABBA</button><button (click)="artist='Sandra Kim'">Sandra Kim</button></div>
 </article>

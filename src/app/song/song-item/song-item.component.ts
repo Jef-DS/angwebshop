@@ -11,12 +11,7 @@ export class SongItemComponent implements OnInit {
   constructor() {
     this.#song = new Song('Waterloo', 1974);
   }
-  makeArtistABBA(): void{
-    this.#song.artist = 'ABBA';
-  }
-  makeArtistSandraKim(): void{
-    this.#song.artist = 'Sandra Kim';
-  }
+
   ngOnInit(): void {
   }
   get title():string{
@@ -28,4 +23,9 @@ export class SongItemComponent implements OnInit {
   get artist(): string{
     return this.#song.artist;
   }
+
+  set artist(name:string){
+    this.#song.artist = name;
+  }
+
 }
