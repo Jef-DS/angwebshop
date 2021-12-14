@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Product } from 'src/app/model/product';
 
 
@@ -17,9 +18,12 @@ export class CreateProductComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  createProduct():void{
-    this.onProductCreated.emit(this.product);
-    this.product = new Product('', '', 0);
+  createProduct(form:NgForm):void{
+    if (form.valid){
+      this.onProductCreated.emit(this.product);
+      this.product = new Product('', '', 0);
+      form.resetForm(this.product);   //reset form status
+    }
   }
 
 }
