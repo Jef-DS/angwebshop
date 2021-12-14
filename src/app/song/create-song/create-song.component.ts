@@ -1,7 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Song } from 'src/app/model/song';
-import { SongService } from 'src/app/services/song.service';
+
+import { Song2 } from 'src/app/model/song2';
+import { Song2HttpService } from 'src/app/services/song2-http.service';
 
 @Component({
   selector: 'app-create-song',
@@ -9,22 +10,23 @@ import { SongService } from 'src/app/services/song.service';
   styleUrls: ['./create-song.component.css']
 })
 export class CreateSongComponent implements OnInit {
-  song:Song;
-  @Output() onSongCreated = new EventEmitter<Song>();
-  constructor(private songService:SongService) {
-    this.song = new Song('',0);
+  song:Song2;
+  @Output() onSongCreated = new EventEmitter<Song2>();
+  constructor(private songService:Song2HttpService) {
+    this.song = new Song2(0,'',0,'');
    }
 
   ngOnInit(): void {
   }
   createSong(form:NgForm):void{
     if (form.valid){
-      if (this.songService.createSong(this.song)){
-        this.song = new Song('',0);
-         form.resetForm(this.song);
-      }else{
-        form.controls['title'].setErrors({notUnique:true});
-      }
+      this.songService.createSong(this.song).subscribe({
+        next: (result:any) => {
+          this.song = new Song2(0,'',0,'');
+          form.resetForm(this.song);
+          this.onSongCreated.emit(this.song);
+        }
+      })
     }
   }
 }
