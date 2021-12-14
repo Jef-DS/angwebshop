@@ -9,6 +9,7 @@ import { Product } from 'src/app/model/product';
 export class ProductSingleItemComponent implements OnInit {
   @Input() product!:Product; //non-null assertion operator !
   @Output('productClick') clickProduct= new EventEmitter<Product>();
+  @Output() doublePrice = new EventEmitter<Product>();
 
   constructor() { }  // no initialisation anymore, the value will be provided by the parent component
 
@@ -19,4 +20,7 @@ export class ProductSingleItemComponent implements OnInit {
     this.clickProduct.emit(this.product); //send the product to the parent
   }
 
+  double(){
+    this.doublePrice.emit(this.product);
+  }
 }

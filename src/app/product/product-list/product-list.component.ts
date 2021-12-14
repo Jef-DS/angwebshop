@@ -21,4 +21,9 @@ export class ProductListComponent implements OnInit {
     const foundProduct = this.products.find( p => p.code === product.code);
     foundProduct?.toggleImportant();
   }
+  doublePrice(product:Product):void{
+    const foundProduct = this.products.find(p => p.code === product.code);
+    if (foundProduct === undefined) return;
+    foundProduct.price = foundProduct?.price * 2;
+  }
 }
