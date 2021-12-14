@@ -1,4 +1,4 @@
 <app-create-song (onSongCreated)="refresh()"></app-create-song>
 <div class="songs">
- <app-song-single-item *ngFor="let song of songs" [song]="song"></app-song-single-item> 
+    <app-song-single-item (onSongDeleted)="refresh()" *ngFor="let song of songs" [song]="song"></app-song-single-item>
 </div>
