@@ -8,6 +8,8 @@ import { ProductSingleItemComponent } from './product/product-single-item/produc
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { SongSingleItemComponent } from './song/song-single-item/song-single-item.component';
 import { SongListComponent } from './song/song-list/song-list.component';
+import { FormsModule } from '@angular/forms';
+import { CreateProductComponent } from './product/create-product/create-product.component';
 
 @NgModule({
   declarations: [
@@ -17,10 +19,12 @@ import { SongListComponent } from './song/song-list/song-list.component';
     ProductSingleItemComponent,
     ProductListComponent,
     SongSingleItemComponent,
-    SongListComponent
+    SongListComponent,
+    CreateProductComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

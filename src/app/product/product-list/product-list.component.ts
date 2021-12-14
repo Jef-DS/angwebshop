@@ -17,6 +17,9 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  addProduct(product:Product):void{
+    this.products.push(product);
+  }
   toggleImportant(product:Product):void{
     const foundProduct = this.products.find( p => p.code === product.code);
     foundProduct?.toggleImportant();
