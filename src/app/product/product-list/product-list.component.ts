@@ -12,6 +12,7 @@ export class ProductListComponent implements OnInit {
     new Product('BLBO', 'Blackboard', 20.95),
     new Product('RULE', 'Ruler', 2.05, true)
   ];
+  @Input() title!: string;
   constructor() { }
 
   ngOnInit(): void {
