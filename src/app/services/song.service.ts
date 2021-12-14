@@ -16,6 +16,8 @@ export class SongService implements Iterable<Song> {
     return this.#songs[Symbol.iterator]();
   }
   createSong(song:Song):boolean{
+    const foundSong = this.#songs.find(s => s.title === song.title);
+    if (foundSong) return false;
     this.#songs.push(song);
     return true;
   }

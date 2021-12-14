@@ -22,6 +22,8 @@ export class CreateSongComponent implements OnInit {
       if (this.songService.createSong(this.song)){
         this.song = new Song('',0);
          form.resetForm(this.song);
+      }else{
+        form.controls['title'].setErrors({notUnique:true});
       }
     }
   }
