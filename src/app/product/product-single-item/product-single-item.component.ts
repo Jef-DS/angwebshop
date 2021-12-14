@@ -8,7 +8,7 @@ import { Product } from 'src/app/model/product';
 })
 export class ProductSingleItemComponent implements OnInit {
   @Input() product!:Product; //non-null assertion operator !
-  @Output() clickProduct= new EventEmitter<Product>();
+  @Output('productClick') clickProduct= new EventEmitter<Product>();
 
   constructor() { }  // no initialisation anymore, the value will be provided by the parent component
 

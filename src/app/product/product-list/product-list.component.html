@@ -2,6 +2,6 @@
 <div class="products">
     <app-product-single-item 
            *ngFor="let prod of products" 
-           (clickProduct)="toggleImportant($any($event))" 
+           (productClick)="toggleImportant($any($event))" 
            [product]="prod"></app-product-single-item>
 </div>
