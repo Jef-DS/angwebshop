@@ -9,10 +9,13 @@ export class ProductItemComponent implements OnInit {
   code: string;
   name: string;
   price: number;
+  isImportant: boolean;
   constructor() { 
     this.code = 'PENC';
     this.name = 'Pencil';
-    this.price = 1.5;  }
+    this.price = 1.5;
+    this.isImportant = true;
+  }
 
   ngOnInit(): void {
   }

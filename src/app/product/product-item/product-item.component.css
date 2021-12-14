@@ -8,3 +8,7 @@
     content: ': ';
     width: 10rem;
 }
+
+.important {
+    background-color: red;
+}
