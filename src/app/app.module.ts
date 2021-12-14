@@ -6,6 +6,8 @@ import { ProductItemComponent } from './product/product-item/product-item.compon
 import { SongItemComponent } from './song/song-item/song-item.component';
 import { ProductSingleItemComponent } from './product/product-single-item/product-single-item.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
+import { SongSingleItemComponent } from './song/song-single-item/song-single-item.component';
+import { SongListComponent } from './song/song-list/song-list.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { ProductListComponent } from './product/product-list/product-list.compon
     ProductItemComponent,
     SongItemComponent,
     ProductSingleItemComponent,
-    ProductListComponent
+    ProductListComponent,
+    SongSingleItemComponent,
+    SongListComponent
   ],
   imports: [
     BrowserModule

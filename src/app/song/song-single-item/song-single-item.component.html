@@ -1,0 +1,7 @@
+<article [ngClass]="{'red':song.artist=='ABBA'}">
+    <div>{{song.title}} ({{song.year}}) <span *ngIf="song.artist!='ABBA' else hologram">performed by {{song.artist}}</span> </div>
+    <div><button (click)="song.artist='ABBA'">ABBA</button><button (click)="song.artist='Sandra Kim'">Sandra Kim</button></div>
+</article>
+<ng-template #hologram>
+    performed by holograms
+</ng-template>
