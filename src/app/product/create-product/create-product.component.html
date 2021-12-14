@@ -1,11 +1,11 @@
 <h1>CreateProduct form</h1>
 <form class="form">
-    <label class="product-label">Code</label><input type="text" [value]="product.code"
-                        (input)="product.code = $any($event.target).value"/>
-    <label class="product-label">Name</label><input type="text" [value]="product.name"
-                        (input)="product.name = $any($event.target).value"/>
-    <label class="product-label">Price</label><input type="number" [value]="product.price"
-                        (input) ="product.price = $any($event.target).value" >
+    <label class="product-label">Code</label><input type="text" name="code" 
+                        [ngModel]="product.code" (ngModelChange)="product.code = $event"/>
+    <label class="product-label">Name</label><input type="text" name="name" 
+                        [ngModel]="product.name" (ngModelChange)="product.name = $event"/>
+    <label class="product-label">Price</label><input type="number" name="price" 
+                        [ngModel]="product.price" (ngModelChange) ="product.price = $event" />
     <button type="button" (click)="createProduct()">Create product</button>
     <button type="button" >Cancel</button>
 </form>
