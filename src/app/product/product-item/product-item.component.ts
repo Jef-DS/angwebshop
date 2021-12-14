@@ -6,13 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
-  public code: string;
-  public name: string;
-
-  constructor() {
+  code: string;
+  name: string;
+  price: number;
+  constructor() { 
     this.code = 'PENC';
-    this.name = 'Pencil'
-  }
+    this.name = 'Pencil';
+    this.price = 1.5;  }
 
   ngOnInit(): void {
   }
