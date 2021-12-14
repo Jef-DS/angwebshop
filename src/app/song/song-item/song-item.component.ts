@@ -8,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class SongItemComponent implements OnInit {
   public title: string;
   public year: number;
+  public artist: string;
   constructor() {
     this.title = 'Waterloo';
     this.year = 1974;
+    this.artist= 'ABBA';
   }
 
   ngOnInit(): void {
   }
+
 }
