@@ -7,26 +7,15 @@ import { Product } from 'src/app/model/product';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
-  product:Product;
+  public products:Product[]; // an array of products
   constructor() { 
-    this.product = new Product('PENC', 'pencil', 1.5)
+    //initialisation of an array of products
+    this.products = [new Product('penc', 'pencil', 2.1), new Product('tabl', 'table', 10.3),  new Product('chai', 'chair', 5.4)];
   }
 
   ngOnInit(): void {
   }
-  toggleImportant():void { //the function has no return value
-    this.product.toggleImportant();
-  }
-  get code():string{
-    return this.product.code;
-  }
-  get name():string{
-    return this.product.name;
-  }
-  get price(): number{
-    return this.product.price;
-  }
-  get isImportant(): boolean{
-    return this.product.isImportant;
+  toggleImportant(index: number):void{
+    this.products[index].toggleImportant();
   }
 }

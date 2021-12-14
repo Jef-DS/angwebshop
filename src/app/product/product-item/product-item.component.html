@@ -1,8 +1,8 @@
-<article class="product" [ngClass]="{important:isImportant}">
-    <h1 class="product-name">{{name}}</h1>
-    <p class="product-code"><span class="product-label">Code</span>{{code}}</p>
-    <p *ngIf="isImportant else hidden" class="product-price"><span class="product-label">Price</span>{{price}}</p>
-    <button (click)="toggleImportant()">Toggle important</button>
+<article *ngFor="let p of products;index as i" class="product" [ngClass]="{important:p.isImportant}">
+    <h1 class="product-name">{{p.name}}</h1>
+    <p class="product-code"><span class="product-label">Code</span>{{p.code}}</p>
+    <p *ngIf="p.isImportant else hidden" class="product-price"><span class="product-label">Price</span>{{p.price}}</p>
+    <button (click)="toggleImportant(i)">Toggle important</button>
 </article>
 <ng-template #hidden>
     <p>Price hidden</p>
