@@ -5,7 +5,7 @@
     <label class="product-label">Name</label><input type="text" name="name" 
                         #name="ngModel" required [(ngModel)]="product.name" />
     <label class="product-label">Price</label><input type="number" name="price" 
-                        #price="ngModel" required [(ngModel)]="product.price"  />
+                        #price="ngModel"required [(ngModel)]="product.price"  />
     <label class="product-label">Important</label><input type="checkbox" name="important"
                         [(ngModel)]="product.isImportant" />
     <button>Create product</button>
@@ -15,6 +15,7 @@
     <li *ngIf="code.errors && (code.errors['minlength'] || code.errors['maxlength'])">
         Code must be 4 characters long
     </li>
+    <li *ngIf="code.errors && code.errors['notUnique']">Code is not unique</li>
     <li *ngIf="name.errors && name.errors['required']">Name is required</li>
     <li *ngIf="price.errors && price.errors['required']">Price is required</li>
  </ul>

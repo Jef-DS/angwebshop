@@ -20,9 +20,13 @@ export class CreateProductComponent implements OnInit {
   ngOnInit(): void {
   }
   createProduct(form:NgForm):void{
-    if (this.productService.createProduct(this.product)){
-      this.product = new Product('', '', 0);
-      form.resetForm(this.product);
+    if (form.valid){
+      if (this.productService.createProduct(this.product)){
+        this.product = new Product('', '', 0);
+        form.resetForm(this.product);
+      }else{
+        form.controls['code'].setErrors({notUnique:true});
+      }
     }
   }
 }

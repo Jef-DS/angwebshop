@@ -20,7 +20,4 @@ export class ProductSingleItemComponent implements OnInit {
     this.clickProduct.emit(this.product); //send the product to the parent
   }
 
-  double(){
-    this.doublePrice.emit(this.product);
-  }
 }
