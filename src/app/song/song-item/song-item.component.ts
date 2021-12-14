@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Song } from 'src/app/model/song';
 
 @Component({
   selector: 'song-item',
@@ -6,16 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./song-item.component.css']
 })
 export class SongItemComponent implements OnInit {
-  public title: string;
-  public year: number;
-  public artist: string;
+  #song: Song;
   constructor() {
-    this.title = 'Waterloo';
-    this.year = 1974;
-    this.artist= 'ABBA';
+    this.#song = new Song('Waterloo', 1974);
   }
 
   ngOnInit(): void {
+  }
+  get title():string{
+    return this.#song.title;
+  }
+  get year(): number{
+    return this.#song.year;
+  }
+  get artist(): string{
+    return this.#song.artist;
   }
 
 }
