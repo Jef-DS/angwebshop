@@ -1,7 +1,7 @@
 <h1>Create Song form</h1>
-<form class="form" (ngSubmit)="createSong()">
+<form class="form" #songForm="ngForm" (ngSubmit)="createSong(songForm)">
     <label class="song-label">Title</label>
-    <input type="text" name="title" [(ngModel)]="song.title"/>
+    <input type="text"  required minlength="2" #title="ngModel" name="title" [(ngModel)]="song.title"/>
     <label class="song-label">Year</label>
     <input type="number" name="year" [(ngModel)]="song.year"/>
     <label class="song-label">Artist</label>
@@ -13,3 +13,7 @@
     <button>Create</button>
     <button type="button">Cancel</button>
 </form>
+<ul *ngIf="songForm.submitted && songForm.invalid && title.errors">
+    <li *ngIf="title.errors['required']" >Title is required</li>
+    <li *ngIf="title.errors['minlength']">Title must be at least 2 characters </li>
+</ul>

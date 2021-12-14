@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Song } from 'src/app/model/song';
 
 @Component({
@@ -15,8 +16,11 @@ export class CreateSongComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  createSong():void{
-    this.onSongCreated.emit(this.song);
-    this.song = new Song('',0);
+  createSong(form:NgForm):void{
+    if (form.valid){
+      this.onSongCreated.emit(this.song);
+      this.song = new Song('',0);
+      form.resetForm(this.song);
+    }
   }
 }
