@@ -13,6 +13,6 @@ import { ProductItemComponent } from './product/product-item/product-item.compon
     BrowserModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent,ProductItemComponent]
 })
 export class AppModule { }
