@@ -8,7 +8,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## install and run json-server
 
-Install json-server globally npm install -g json-server
+Install json-server globally: npm install -g json-server
 
 ## Code scaffolding
 
