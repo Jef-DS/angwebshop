@@ -1,0 +1,13 @@
+{
+    "products":[
+        {"id":1,"code":"PENC", "name":"Pencil", "price": 1.25, "isImportant": true },
+        {"id":2,"code":"BLBO", "name":"Blackboard", "price": 20.95, "isImportant": false},
+        {"id":3,"code":"RULE", "name":"Ruler", "price": 2.5, "isImportant": false}
+    ],
+    "songs":[
+        {"id":1,"title":"Waterloo", "artist": "ABBA", "year": 1974},
+        {"id":2,"title":"J'aime la vie", "artist": "Sandra Kim", "year": 1986},
+        {"id":3,"title":"Zitti e buoni", "artist": "Måneskin", "year": 2020},
+        {"id":4,"title":"I still have faith in you", "artist": "ABBA", "year": 2021}
+    ]
+}

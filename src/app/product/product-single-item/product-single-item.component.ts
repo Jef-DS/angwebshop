@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Product } from 'src/app/model/product';
+import { Product2 } from 'src/app/model/product2';
+import { Product2HttpService } from 'src/app/services/product2-http.service';
 
 @Component({
   selector: 'app-product-single-item',
@@ -7,17 +8,17 @@ import { Product } from 'src/app/model/product';
   styleUrls: ['./product-single-item.component.css']
 })
 export class ProductSingleItemComponent implements OnInit {
-  @Input() product!:Product; //non-null assertion operator !
-  @Output('productClick') clickProduct= new EventEmitter<Product>();
-  @Output() doublePrice = new EventEmitter<Product>();
-
-  constructor() { }  // no initialisation anymore, the value will be provided by the parent component
-
-  ngOnInit(): void {
+  @Input() product!:Product2; //non-null assertion operator !
+  @Output() onProductDeleted: EventEmitter<Product2>
+  constructor(private productService:Product2HttpService) { 
+    this.onProductDeleted = new EventEmitter<Product2>();
+  }  
+  delete():void{
+    this.productService.deleteProduct(this.product).subscribe(() => {
+      this.onProductDeleted.emit(this.product);
+    })
   }
-
-  toggleImportant(){
-    this.clickProduct.emit(this.product); //send the product to the parent
+  ngOnInit(): void {
   }
 
 }

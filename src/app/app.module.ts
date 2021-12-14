@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import {HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProductItemComponent } from './product/product-item/product-item.component';
 import { SongItemComponent } from './song/song-item/song-item.component';
@@ -26,7 +26,8 @@ import { CreateSongComponent } from './song/create-song/create-song.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

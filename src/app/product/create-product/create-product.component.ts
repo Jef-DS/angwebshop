@@ -1,7 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Product } from 'src/app/model/product';
-import { ObservableProductService } from 'src/app/services/observable-product.service';
+import { Product2 } from 'src/app/model/product2';
+
+import { Product2HttpService } from 'src/app/services/product2-http.service';
 
 @Component({
   selector: 'app-create-product',
@@ -9,11 +10,11 @@ import { ObservableProductService } from 'src/app/services/observable-product.se
   styleUrls: ['./create-product.component.css']
 })
 export class CreateProductComponent implements OnInit {
-  product: Product;
-  @Output() onProductCreated: EventEmitter<Product>;
-  constructor(private productService:ObservableProductService) { 
-    this.product = new Product('','', 0);
-    this.onProductCreated = new EventEmitter<Product>();
+  product: Product2;
+  @Output() onProductCreated: EventEmitter<Product2>;
+  constructor(private productService:Product2HttpService) { 
+    this.product = new Product2(0,'','', 0);
+    this.onProductCreated = new EventEmitter<Product2>();
   }
 
   ngOnInit(): void {
@@ -22,20 +23,12 @@ export class CreateProductComponent implements OnInit {
     if (form.valid){
       this.productService.createProduct(this.product).subscribe({ 
         next: (result:any) => {
-          this.product = new Product('', '', 0);
+          this.product = new Product2(0,'', '', 0);
           form.resetForm(this.product);
+          this.onProductCreated.emit(this.product);
           console.log(result);
         },
-        error:(err:any) => {
-          console.log(err);
-          if (err.code === 'NOTUNIQUE'){
-            form.controls['code'].setErrors({notUnique:true});
-          }else{
-            console.log(err.msg);
-            throw Error('unknown error');
-          }
-        },
-        complete:() => console.log('complete') //to check if the subscription completed automatically
+        complete:() => console.log('complete')
       })
     }
   }

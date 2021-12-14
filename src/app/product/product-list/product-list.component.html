@@ -1,7 +1,8 @@
 <h2>{{title}}</h2>
-<app-create-product ></app-create-product>
+<app-create-product (onProductCreated)="refresh()" ></app-create-product>
 <div class="products">
     <app-product-single-item 
-           *ngFor="let prod of products$|async" 
+           *ngFor="let prod of products" 
+           (onProductDeleted)="refresh()"
            [product]="prod"></app-product-single-item>
 </div>

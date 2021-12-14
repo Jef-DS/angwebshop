@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Product } from 'src/app/model/product';
-import { ObservableProductService } from 'src/app/services/observable-product.service';
+import { map, Observable } from 'rxjs';
+
+import { Product2 } from 'src/app/model/product2';
+import { Product2HttpService } from 'src/app/services/product2-http.service';
 
 
 @Component({
@@ -11,12 +12,22 @@ import { ObservableProductService } from 'src/app/services/observable-product.se
 })
 export class ProductListComponent implements OnInit {
   @Input() title!: string;
-  public products$: Observable<Product[]>
-  constructor(public productService :ObservableProductService) {
-    this.products$ = this.productService.getProducts();
-  }
+  public products: Product2[]
+  constructor(public productService :Product2HttpService) {
+    this.products = new Array<Product2>();
+   }
 
   ngOnInit(): void {
+    this.refresh();
+  }
+
+  refresh():void{
+    this.productService.getProducts().pipe(map(pList => {
+      return pList.map(p => Product2.copyProduct(p))
+    })).subscribe(pList => {
+      this.products = pList;
+    })
+
   }
 
 }
