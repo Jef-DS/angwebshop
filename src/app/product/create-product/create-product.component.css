@@ -10,3 +10,10 @@
 .product-label::after{
     content:': ';
 }
+
+.ng-touched.ng-invalid:not(form) { /*we don't want a red border around the form*/
+    border: 1px solid red
+}
+.ng-touched.ng-valid, .ng-untouched {
+    border: 2px inset initial;
+}
