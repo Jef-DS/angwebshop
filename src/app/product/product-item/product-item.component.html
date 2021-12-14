@@ -1,4 +1,4 @@
-<article *ngFor="let p of products;index as i" class="product" [ngClass]="{important:p.isImportant}">
+<article *ngFor="let p of products;index as i; first as prime" class="product" [class.important]="prime" >
     <h1 class="product-name">{{p.name}}</h1>
     <p class="product-code"><span class="product-label">Code</span>{{p.code}}</p>
     <p *ngIf="p.isImportant else hidden" class="product-price"><span class="product-label">Price</span>{{p.price}}</p>
