@@ -1,0 +1,15 @@
+<h1>Create Song form</h1>
+<form class="form" (ngSubmit)="createSong()">
+    <label class="song-label">Title</label>
+    <input type="text" name="title" [(ngModel)]="song.title"/>
+    <label class="song-label">Year</label>
+    <input type="number" name="year" [(ngModel)]="song.year"/>
+    <label class="song-label">Artist</label>
+    <select name="artist" [(ngModel)]="song.artist">
+        <option value="ABBA">ABBA</option>
+        <option value="Sandra Kim">Sandra Kim</option>
+        <option value="Måneskin">Måneskin</option>
+    </select>
+    <button>Create</button>
+    <button type="button">Cancel</button>
+</form>

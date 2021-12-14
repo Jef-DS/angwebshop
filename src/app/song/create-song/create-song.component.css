@@ -1,0 +1,12 @@
+.form{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    width: 40rem;
+    margin: 1rem auto;
+}
+.song-label{
+    text-align: right;
+}
+.song-label::after{
+    content:': ';
+}

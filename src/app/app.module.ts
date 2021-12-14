@@ -10,6 +10,7 @@ import { SongSingleItemComponent } from './song/song-single-item/song-single-ite
 import { SongListComponent } from './song/song-list/song-list.component';
 import { FormsModule } from '@angular/forms';
 import { CreateProductComponent } from './product/create-product/create-product.component';
+import { CreateSongComponent } from './song/create-song/create-song.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CreateProductComponent } from './product/create-product/create-product.
     ProductListComponent,
     SongSingleItemComponent,
     SongListComponent,
-    CreateProductComponent
+    CreateProductComponent,
+    CreateSongComponent
   ],
   imports: [
     BrowserModule,

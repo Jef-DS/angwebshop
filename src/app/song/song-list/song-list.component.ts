@@ -17,5 +17,7 @@ export class SongListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  addSong(song:Song):void{
+    this.songs.push(song);
+  }
 }
