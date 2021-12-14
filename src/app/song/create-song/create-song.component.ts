@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Song } from 'src/app/model/song';
+import { SongService } from 'src/app/services/song.service';
 
 @Component({
   selector: 'app-create-song',
@@ -10,7 +11,7 @@ import { Song } from 'src/app/model/song';
 export class CreateSongComponent implements OnInit {
   song:Song;
   @Output() onSongCreated = new EventEmitter<Song>();
-  constructor() {
+  constructor(private songService:SongService) {
     this.song = new Song('',0);
    }
 
@@ -18,9 +19,10 @@ export class CreateSongComponent implements OnInit {
   }
   createSong(form:NgForm):void{
     if (form.valid){
-      this.onSongCreated.emit(this.song);
-      this.song = new Song('',0);
-      form.resetForm(this.song);
+      if (this.songService.createSong(this.song)){
+        this.song = new Song('',0);
+         form.resetForm(this.song);
+      }
     }
   }
 }

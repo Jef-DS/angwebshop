@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Song } from 'src/app/model/song';
+import { SongService } from 'src/app/services/song.service';
 
 @Component({
   selector: 'app-song-list',
@@ -7,17 +8,13 @@ import { Song } from 'src/app/model/song';
   styleUrls: ['./song-list.component.css']
 })
 export class SongListComponent implements OnInit {
-  songs = [
-    new Song('Waterloo', 1974),
-    new Song("J'aime la vie", 1986,"Sandra Kim"),
-    new Song("Zitti e buoni", 2020, 'Måneskin'),
-    new Song('I still have faith in you', 2021)
-  ];
-  constructor() { }
+
+  constructor(private songService:SongService) { }
 
   ngOnInit(): void {
   }
-  addSong(song:Song):void{
-    this.songs.push(song);
+  get songs():Iterable<Song>{
+    return this.songService;
   }
+
 }
