@@ -1,7 +1,11 @@
-<h1>Create product form</h1>
-<form class="form">
-    <label class="product-label">Code</label> <input name="code" type="text" [(ngModel)]="product.code">
-    <label class="product-label">Name</label> <input name="name" type="text" [(ngModel)]="product.name">
-    <label class="product-label">Price</label> <input name="price" type="number" [(ngModel)]="product.price">
-    <button (click)="createProduct()">Create product</button>
+<h1>CreateProduct form</h1>
+<form class="form" (ngSubmit)="createProduct()">
+    <label class="product-label">Code</label><input type="text" name="code" 
+                        [(ngModel)]="product.code" />
+    <label class="product-label">Name</label><input type="text" name="name" 
+                        [(ngModel)]="product.name" />
+    <label class="product-label">Price</label><input type="number" name="price" 
+                        [(ngModel)]="product.price"  />
+    <button>Create product</button>
+    <button type="button" >Cancel</button>
 </form>
