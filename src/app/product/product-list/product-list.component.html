@@ -1,4 +1,7 @@
 <h2>{{title}}</h2>
 <div class="products">
-    <app-product-single-item *ngFor="let prod of products" [product]="prod"></app-product-single-item>
+    <app-product-single-item 
+           *ngFor="let prod of products" 
+           (clickProduct)="toggleImportant($any($event))" 
+           [product]="prod"></app-product-single-item>
 </div>

@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/model/product';
+
 @Component({
   selector: 'app-product-single-item',
   templateUrl: './product-single-item.component.html',
@@ -7,10 +8,15 @@ import { Product } from 'src/app/model/product';
 })
 export class ProductSingleItemComponent implements OnInit {
   @Input() product!:Product; //non-null assertion operator !
+  @Output() clickProduct= new EventEmitter<Product>();
+
   constructor() { }  // no initialisation anymore, the value will be provided by the parent component
+
   ngOnInit(): void {
   }
+
   toggleImportant(){
-    this.product.toggleImportant();
+    this.clickProduct.emit(this.product); //send the product to the parent
   }
+
 }

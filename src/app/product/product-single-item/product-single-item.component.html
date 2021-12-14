@@ -2,4 +2,5 @@
     <div class="product-code"><span class="product-label">Code</span>{{ product.code }}</div>
     <div class="product-name"><span class="product-label">Name</span>{{ product.name }}</div>
     <div *ngIf="product.isImportant" class="product-price"><span class="product-label">Price</span>{{ product.price }}</div>
+    <button (click)="toggleImportant()">Toggle Important</button>
 </article>
