@@ -1,6 +1,6 @@
 <article class="product" [ngClass]="{important:isImportant}">
     <h1 class="product-name">{{name}}</h1>
     <p class="product-code"><span class="product-label">Code</span>{{code}}</p>
-    <p class="product-price"><span class="product-label">Price</span>{{price}}</p>
+    <p *ngIf="isImportant" class="product-price"><span class="product-label">Price</span>{{price}}</p>
     <button (click)="toggleImportant()">Toggle important</button>
 </article>
