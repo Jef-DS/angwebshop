@@ -1,4 +1,4 @@
-<article [ngClass]="{'red':artist=='ABBA'}">
-    <div>{{title}} ({{year}}) performed by {{artist}}</div>
-    <div><button (click)="artist='ABBA'">ABBA</button><button (click)="artist='Sandra Kim'">Sandra Kim</button></div>
+<article *ngFor="let song of songs" [ngClass]="{'red':song.artist=='ABBA'}">
+    <div>{{song.title}} ({{song.year}}) performed by {{song.artist}}</div>
+    <div><button (click)="song.artist='ABBA'">ABBA</button><button (click)="song.artist='Sandra Kim'">Sandra Kim</button></div>
 </article>

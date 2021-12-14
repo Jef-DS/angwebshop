@@ -7,25 +7,16 @@ import { Song } from 'src/app/model/song';
   styleUrls: ['./song-item.component.css']
 })
 export class SongItemComponent implements OnInit {
-  #song: Song;
+  songs: Song[];
   constructor() {
-    this.#song = new Song('Waterloo', 1974);
+    this.songs = [
+              new Song('Waterloo', 1974),
+              new Song("J'aime la vie", 1986,"Sandra Kim"),
+              new Song("Zitti e buoni", 2020, 'Måneskin'),
+              new Song('I still have faith in you', 2021)
+            ];
   }
 
   ngOnInit(): void {
   }
-  get title():string{
-    return this.#song.title;
-  }
-  get year(): number{
-    return this.#song.year;
-  }
-  get artist(): string{
-    return this.#song.artist;
-  }
-
-  set artist(name:string){
-    this.#song.artist = name;
-  }
-
 }
