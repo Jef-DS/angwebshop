@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from 'src/app/model/product';
 
 @Component({
   selector: 'app-product-item',
@@ -6,18 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
-  code: string;
-  name: string;
-  price: number;
-  isImportant: boolean;
+  product:Product;
   constructor() { 
-    this.code = 'PENC';
-    this.name = 'Pencil';
-    this.price = 1.5;
-    this.isImportant = true;
+    this.product = new Product('PENC', 'pencil', 1.5)
   }
 
   ngOnInit(): void {
   }
-
+  toggleImportant():void { //the function has no return value
+    this.product.toggleImportant();
+  }
+  get code():string{
+    return this.product.code;
+  }
+  get name():string{
+    return this.product.name;
+  }
+  get price(): number{
+    return this.product.price;
+  }
+  get isImportant(): boolean{
+    return this.product.isImportant;
+  }
 }
