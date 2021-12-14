@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-list',
@@ -8,25 +9,16 @@ import { Product } from 'src/app/model/product';
 })
 export class ProductListComponent implements OnInit {
   @Input() title!: string;
-  products = [
-    new Product('PENC', 'Pencil', 1.25),
-    new Product('BLBO', 'Blackboard', 20.95),
-    new Product('RULE', 'Ruler', 2.05, true)
-  ];
-  constructor() { }
+
+  constructor(private productService:ProductService) { }
 
   ngOnInit(): void {
   }
-  addProduct(product:Product):void{
-    this.products.push(product);
+  get products():Product[]{
+    return this.productService.products;
   }
+
   toggleImportant(product:Product):void{
-    const foundProduct = this.products.find( p => p.code === product.code);
-    foundProduct?.toggleImportant();
-  }
-  doublePrice(product:Product):void{
-    const foundProduct = this.products.find(p => p.code === product.code);
-    if (foundProduct === undefined) return;
-    foundProduct.price = foundProduct?.price * 2;
+    this.productService.toggleImportant(product);
   }
 }

@@ -1,9 +1,8 @@
 <h2>{{title}}</h2>
-<app-create-product (onProductCreated)="addProduct($event)"></app-create-product>
+<app-create-product ></app-create-product>
 <div class="products">
     <app-product-single-item 
            *ngFor="let prod of products" 
            (productClick)="toggleImportant($any($event))"
-           (doublePrice)="doublePrice($any($event))" 
            [product]="prod"></app-product-single-item>
 </div>

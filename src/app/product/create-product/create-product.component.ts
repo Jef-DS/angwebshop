@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Product } from 'src/app/model/product';
+import { ProductService } from 'src/app/services/product.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { Product } from 'src/app/model/product';
 export class CreateProductComponent implements OnInit {
   product: Product;
   @Output() onProductCreated: EventEmitter<Product>;
-  constructor() { 
+  constructor(private productService:ProductService) { 
     this.product = new Product('','', 0);
     this.onProductCreated = new EventEmitter<Product>();
   }
@@ -19,11 +20,9 @@ export class CreateProductComponent implements OnInit {
   ngOnInit(): void {
   }
   createProduct(form:NgForm):void{
-    if (form.valid){
-      this.onProductCreated.emit(this.product);
+    if (this.productService.createProduct(this.product)){
       this.product = new Product('', '', 0);
-      form.resetForm(this.product);   //reset form status
+      form.resetForm(this.product);
     }
   }
-
 }
