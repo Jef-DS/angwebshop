@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Product } from './model/product';
 
 @Component({
   selector: 'app-comp',
@@ -7,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Our webshop';
+  aProduct = new Product('PENC', 'Pencil', 1.25);
 }
