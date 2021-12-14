@@ -6,6 +6,8 @@
                         [(ngModel)]="product.name" />
     <label class="product-label">Price</label><input type="number" name="price" 
                         [(ngModel)]="product.price"  />
+    <label class="product-label">Important</label><input type="checkbox" name="important"
+                        [(ngModel)]="product.isImportant" />
     <button>Create product</button>
     <button type="button" >Cancel</button>
 </form>
