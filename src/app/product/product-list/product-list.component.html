@@ -2,7 +2,6 @@
 <app-create-product ></app-create-product>
 <div class="products">
     <app-product-single-item 
-           *ngFor="let prod of products" 
-           (productClick)="toggleImportant($any($event))"
+           *ngFor="let prod of products$|async" 
            [product]="prod"></app-product-single-item>
 </div>

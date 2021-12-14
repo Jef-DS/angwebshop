@@ -1,8 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Product } from 'src/app/model/product';
-import { ProductService } from 'src/app/services/product.service';
-
+import { ObservableProductService } from 'src/app/services/observable-product.service';
 
 @Component({
   selector: 'app-create-product',
@@ -12,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class CreateProductComponent implements OnInit {
   product: Product;
   @Output() onProductCreated: EventEmitter<Product>;
-  constructor(private productService:ProductService) { 
+  constructor(private productService:ObservableProductService) { 
     this.product = new Product('','', 0);
     this.onProductCreated = new EventEmitter<Product>();
   }
@@ -21,12 +20,23 @@ export class CreateProductComponent implements OnInit {
   }
   createProduct(form:NgForm):void{
     if (form.valid){
-      if (this.productService.createProduct(this.product)){
-        this.product = new Product('', '', 0);
-        form.resetForm(this.product);
-      }else{
-        form.controls['code'].setErrors({notUnique:true});
-      }
+      this.productService.createProduct(this.product).subscribe({ 
+        next: (result:any) => {
+          this.product = new Product('', '', 0);
+          form.resetForm(this.product);
+          console.log(result);
+        },
+        error:(err:any) => {
+          console.log(err);
+          if (err.code === 'NOTUNIQUE'){
+            form.controls['code'].setErrors({notUnique:true});
+          }else{
+            console.log(err.msg);
+            throw Error('unknown error');
+          }
+        },
+        complete:() => console.log('complete') //to check if the subscription completed automatically
+      })
     }
   }
 }

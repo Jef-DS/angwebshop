@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from 'src/app/model/product';
-import { ProductService } from 'src/app/services/product.service';
+import { ObservableProductService } from 'src/app/services/observable-product.service';
+
 
 @Component({
   selector: 'app-product-list',
@@ -9,16 +11,12 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductListComponent implements OnInit {
   @Input() title!: string;
-
-  constructor(private productService:ProductService) { }
+  public products$: Observable<Product[]>
+  constructor(public productService :ObservableProductService) {
+    this.products$ = this.productService.getProducts();
+  }
 
   ngOnInit(): void {
   }
-  get products():Iterable<Product>{
-    return this.productService;
-  }
 
-  toggleImportant(product:Product):void{
-    this.productService.toggleImportant(product);
-  }
 }
