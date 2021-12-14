@@ -14,8 +14,8 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  get products():Product[]{
-    return this.productService.products;
+  get products():Iterable<Product>{
+    return this.productService;
   }
 
   toggleImportant(product:Product):void{
