@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-errorpage',
@@ -7,11 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./errorpage.component.css']
 })
 export class ErrorpageComponent implements OnInit {
-  public errormessage= 'The page cannot be reached';
-  constructor() {
+  public errormessage:string;
+  constructor(private route:ActivatedRoute) {
+    const url = this.route.snapshot.url.join('/')
+    this.errormessage=`Unknow URL: ${url}`;
    }
 
   ngOnInit(): void {
-
   }
 }
