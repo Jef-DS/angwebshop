@@ -13,6 +13,7 @@ import { CreateProductComponent } from './product/create-product/create-product.
 import { CreateSongComponent } from './song/create-song/create-song.component';
 import { AppRoutesModule } from './app-routes.module';
 import { HomepageComponent } from './pages/homepage/homepage.component';
+import { ErrorpageComponent } from './pages/errorpage/errorpage.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
     SongListComponent,
     CreateProductComponent,
     CreateSongComponent,
-    HomepageComponent
+    HomepageComponent,
+    ErrorpageComponent
   ],
   imports: [
     BrowserModule,
