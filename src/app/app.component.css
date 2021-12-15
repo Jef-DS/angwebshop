@@ -1,0 +1,16 @@
+menu ul {
+    list-style: none;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: 5em 5em;
+    column-gap: 1em;
+    background-color: black;
+}
+menu ul li a{
+    color: whitesmoke;
+    text-decoration: none;
+    display:block;
+}
+menu ul li a.active-link{
+    background-color: violet;
+}
