@@ -3,13 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ErrorpageComponent } from './pages/errorpage/errorpage.component';
 import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductDetailsComponent } from './product/product-details/product-details.component';
 
-const appRoutes: Routes= [
+const appRoutes: Routes = [
   {path:'', redirectTo:"/home", pathMatch: 'full'},
-  {path:'home', component:HomepageComponent},
-  {path:'products', component:ProductListComponent},
-  {path:'**', component:ErrorpageComponent}
-]
+  {path:'home', component: HomepageComponent},
+  {path:'products', component: ProductListComponent},
+  {path:'products/:code', component:ProductDetailsComponent},
+  {path:'', component:ErrorpageComponent}
+];
 
 @NgModule({
   declarations: [],

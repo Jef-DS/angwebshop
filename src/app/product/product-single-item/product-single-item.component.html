@@ -1,5 +1,7 @@
 <article class="product" [class.important]="product.isImportant">
-    <div class="product-code"><span class="product-label">Code</span>{{ product.code }}</div>
+    <div class="product-code"><span class="product-label">Code</span>
+        <a routerLink="/products/{{product.code}}">{{product.code}}</a>
+    </div>
     <div class="product-name"><span class="product-label">Name</span>{{ product.name }}</div>
     <div *ngIf="product.isImportant" class="product-price"><span class="product-label">Price</span>{{ product.price }}</div>
     <button (click)="delete()">Delete</button>

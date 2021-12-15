@@ -14,6 +14,7 @@ import { CreateSongComponent } from './song/create-song/create-song.component';
 import { AppRoutesModule } from './app-routes.module';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ErrorpageComponent } from './pages/errorpage/errorpage.component';
+import { ProductDetailsComponent } from './product/product-details/product-details.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ErrorpageComponent } from './pages/errorpage/errorpage.component';
     CreateProductComponent,
     CreateSongComponent,
     HomepageComponent,
-    ErrorpageComponent
+    ErrorpageComponent,
+    ProductDetailsComponent
   ],
   imports: [
     BrowserModule,
