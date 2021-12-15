@@ -11,6 +11,8 @@ import { SongListComponent } from './song/song-list/song-list.component';
 import { FormsModule } from '@angular/forms';
 import { CreateProductComponent } from './product/create-product/create-product.component';
 import { CreateSongComponent } from './song/create-song/create-song.component';
+import { AppRoutesModule } from './app-routes.module';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { CreateSongComponent } from './song/create-song/create-song.component';
     SongSingleItemComponent,
     SongListComponent,
     CreateProductComponent,
-    CreateSongComponent
+    CreateSongComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
